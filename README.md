@@ -28,7 +28,8 @@
 
 Este repositório contém a solução da Fase 5 do projeto CardioIA. O objetivo é apresentar um protótipo funcional de um assistente conversacional focado em saúde cardiovascular, integrando tecnologias de Processamento de Linguagem Natural (NLP), Backend em Python e Interface Web.
 
-📋 Sobre o Projeto
+**📋 Sobre o Projeto**
+
 O CardioIA utiliza o IBM watsonx Assistant para interpretar intenções de usuários, fornecendo orientações sobre níveis de pressão arterial e triagem de sintomas. O projeto segue princípios éticos de saúde, incluindo fluxos de urgência e tratamento de exceções.
 
 Principais Funcionalidades:
