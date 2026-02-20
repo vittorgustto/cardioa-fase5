@@ -119,6 +119,7 @@ Abra o arquivo ``index.html`` em seu navegador para iniciar a interação com o 
 ## 📄 Resumo Técnico (Backend & Frontend)
 
 **Backend (app.py)**
+
 O código utiliza o método message_stateless para garantir que as mensagens sejam processadas sem a necessidade de gerenciar sessões complexas no lado do servidor.
 
 ```
@@ -138,6 +139,7 @@ def conversa():
 ```
 
 **Frontend (index.html)**
+
 A interface utiliza Fetch API assíncrona, permitindo que o usuário receba respostas em tempo real sem recarregar a página.
 
 ```
