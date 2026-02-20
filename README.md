@@ -89,11 +89,11 @@ pip install -r requirements.txt
 2. Configuração das Chaves
 Por motivos de segurança, as chaves de API foram omitidas. No arquivo app.py, insira suas credenciais da IBM Cloud:
 
-``
+```
 CHAVE_API = 'SUA_CHAVE_AQUI'
 URL_SERVICO = 'SUA_URL_AQUI'
 ID_ASSISTENTE = 'SEU_ID_AQUI'
-``
+```
 
 3. Rodando o Servidor
 Inicie o backend Flask:
@@ -116,8 +116,7 @@ Abra o arquivo ``index.html`` em seu navegador para iniciar a interação com o 
 **Backend (app.py)**
 O código utiliza o método message_stateless para garantir que as mensagens sejam processadas sem a necessidade de gerenciar sessões complexas no lado do servidor.
 
-``
-
+```
 #Trecho do código comentado para estudo
 @app.route('/conversa', methods=['POST'])
 def conversa():
@@ -131,20 +130,19 @@ def conversa():
         user_id='usuario_cardioia_01'
     ).get_result()
     return jsonify(resposta)
-    
-``
+```
 
 **Frontend (index.html)**
 A interface utiliza Fetch API assíncrona, permitindo que o usuário receba respostas em tempo real sem recarregar a página.
 
-``
+```
 // Exemplo da chamada de API no Frontend
 const response = await fetch('http://127.0.0.1:5000/conversa', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({ texto: texto })
 });
-``
+```
 
 ---
 
