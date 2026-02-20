@@ -154,7 +154,7 @@ const response = await fetch('http://127.0.0.1:5000/conversa', {
 ## 🎬 Demonstração em Vídeo
 
 Um vídeo demonstrando o fluxo de diálogo, o tratamento de erros e a integração técnica pode ser assistido no link abaixo:
-[Link para o seu vídeo no YouTube/Drive aqui]
+[[Link para o vídeo](https://www.youtube.com/watch?v=njP_mqPZCkk)]
 
 ---
 
