@@ -94,6 +94,20 @@ URL_SERVICO = 'SUA_URL_AQUI'
 ID_ASSISTENTE = 'SEU_ID_AQUI'
 ``
 
+3. Rodando o Servidor
+Inicie o backend Flask:
+
+``
+python app.py
+``
+
+O servidor estará disponível em http://127.0.0.1:5000.
+
+4. Acessando a Interface
+Abra o arquivo ``index.html`` em seu navegador para iniciar a interação com o CardioIA.
+
+``
+
 ---
 
 ## 🗂 Estrutura dos Arquivos
