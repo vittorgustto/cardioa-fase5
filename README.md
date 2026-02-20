@@ -117,6 +117,7 @@ Abra o arquivo ``index.html`` em seu navegador para iniciar a interação com o 
 O código utiliza o método message_stateless para garantir que as mensagens sejam processadas sem a necessidade de gerenciar sessões complexas no lado do servidor.
 
 ``
+
 #Trecho do código comentado para estudo
 @app.route('/conversa', methods=['POST'])
 def conversa():
@@ -130,6 +131,7 @@ def conversa():
         user_id='usuario_cardioia_01'
     ).get_result()
     return jsonify(resposta)
+    
 ``
 
 **Frontend (index.html)**
