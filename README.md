@@ -81,18 +81,18 @@ O CardioIA foi projetado para atuar como uma primeira camada de interação info
 1. Pré-requisitos
 Certifique-se de ter o Python instalado. Instale as bibliotecas necessárias utilizando o arquivo requirements.txt:
 
-´´
+``
 pip install -r requirements.txt
-´´
+``
 
 2. Configuração das Chaves
 Por motivos de segurança, as chaves de API foram omitidas. No arquivo app.py, insira suas credenciais da IBM Cloud:
 
-´´
+``
 CHAVE_API = 'SUA_CHAVE_AQUI'
 URL_SERVICO = 'SUA_URL_AQUI'
 ID_ASSISTENTE = 'SEU_ID_AQUI'
-´´
+``
 
 ---
 
