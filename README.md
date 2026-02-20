@@ -80,14 +80,16 @@ O CardioIA foi projetado para atuar como uma primeira camada de interação info
 
 ## 🚀 Como Executar o Projeto
 
-1. Pré-requisitos
+**1. Pré-requisitos**
+
 Certifique-se de ter o Python instalado. Instale as bibliotecas necessárias utilizando o arquivo requirements.txt:
 
 ``
 pip install -r requirements.txt
 ``
 
-2. Configuração das Chaves
+**2. Configuração das Chaves**
+
 Por motivos de segurança, as chaves de API foram omitidas. No arquivo app.py, insira suas credenciais da IBM Cloud:
 
 ```
@@ -96,7 +98,8 @@ URL_SERVICO = 'SUA_URL_AQUI'
 ID_ASSISTENTE = 'SEU_ID_AQUI'
 ```
 
-3. Rodando o Servidor
+**3. Rodando o Servidor**
+
 Inicie o backend Flask:
 
 ``
@@ -105,7 +108,8 @@ python app.py
 
 O servidor estará disponível em http://127.0.0.1:5000.
 
-4. Acessando a Interface
+**4. Acessando a Interface**
+
 Abra o arquivo ``index.html`` em seu navegador para iniciar a interação com o CardioIA.
 
 ``
