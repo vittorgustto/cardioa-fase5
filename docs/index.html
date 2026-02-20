@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CardioIA - Assistente Cardiológico</title>
+    <style>
+        /* Estilização básica para simular um chat moderno */
+        body { font-family: 'Segoe UI', sans-serif; background-color: #e9ecef; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        #chat-container { width: 450px; height: 600px; background: white; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; }
+        #header { background: #004a99; color: white; padding: 20px; text-align: center; font-weight: bold; }
+        #messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .msg { padding: 10px 15px; border-radius: 18px; max-width: 80%; }
+        .user { background: #007bff; color: white; align-self: flex-end; } /* Estilo para mensagens do usuário */
+        .bot { background: #f1f0f0; color: #333; align-self: flex-start; } /* Estilo para mensagens do bot */
+        #input-area { padding: 15px; border-top: 1px solid #eee; display: flex; gap: 10px; }
+        input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 25px; outline: none; }
+        button { background: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div id="chat-container">
+    <div id="header">💙 CardioIA: Assistente Conversacional</div>
+    <div id="messages">
+        <div class="msg bot">Olá! Sou o CardioIA. Como posso ajudar na sua saúde hoje?</div>
+    </div>
+    <div id="input-area">
+        <input type="text" id="user-input" placeholder="Digite sua dúvida clínica...">
+        <button onclick="enviar()">Enviar</button>
+    </div>
+</div>
+
+<script>
+    // Função principal para enviar mensagem ao backend Flask
+    async function enviar() {
+        const input = document.getElementById('user-input');
+        const box = document.getElementById('messages');
+        const texto = input.value.trim();
+        
+        if(!texto) return; // Evita envio de mensagens vazias
+
+        // Adiciona a mensagem do usuário na tela
+        box.innerHTML += `<div class="msg user">${texto}</div>`;
+        input.value = '';
+        box.scrollTop = box.scrollHeight; // Rola o chat para baixo
+
+        try {
+            // Chamada via Fetch API para o servidor backend local
+            const response = await fetch('http://127.0.0.1:5000/conversa', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ texto: texto })
+            });
+
+            const data = await response.json();
+            
+            // Processa a resposta retornada pela API do Watson via Flask
+            let botResposta = "Desculpe, tive um problema ao processar sua dúvida.";
+            if (data.output && data.output.generic && data.output.generic.length > 0) {
+                botResposta = data.output.generic[0].text;
+            }
+
+            // Exibe a resposta do assistente no chat
+            box.innerHTML += `<div class="msg bot">${botResposta}</div>`;
+        } catch (erro) {
+            box.innerHTML += `<div class="msg bot" style="color: red;">Erro de conexão com o servidor.</div>`;
+        }
+        box.scrollTop = box.scrollHeight;
+    }
+
+    // Atalho para enviar mensagem pressionando a tecla Enter
+    document.getElementById('user-input').addEventListener('keypress', (e) => { 
+        if(e.key === 'Enter') enviar(); 
+    });
+</script>
+</body>
+</html>
