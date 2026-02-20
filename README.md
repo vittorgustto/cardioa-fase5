@@ -112,8 +112,6 @@ O servidor estará disponível em http://127.0.0.1:5000.
 
 Abra o arquivo ``index.html`` em seu navegador para iniciar a interação com o CardioIA.
 
-``
-
 ---
 
 ## 📄 Resumo Técnico (Backend & Frontend)
