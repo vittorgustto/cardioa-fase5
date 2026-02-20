@@ -174,7 +174,7 @@ cardioia-fase5/
 │   ├── app.py                               # Servidor backend Flask (Middleware de segurança).
 │   ├── index.html                           # Interface web do usuário (Frontend).
 │   ├── requirements.txt                     # Lista de dependências Python.
-│   └── Relatorio_CardioIA_Fase4Cap1.pdf     # Documentação detalhada do projeto.
+│   └── Relatorio_CardioIA_Fase4Cap1.pdf     # Relatório do projeto.
 │
 └── README.md                                # O arquivo de texto com a apresentação do projeto, equipe e resultados
 ```
