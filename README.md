@@ -61,7 +61,7 @@ Este projeto foi desenvolvido adotando metodologias ágeis e divisão interdisci
 
 ---
 
-## 🚀 Funcionalidades do Projeto
+## ⚙️ Funcionalidades do Projeto
 
 O CardioIA foi projetado para atuar como uma primeira camada de interação informativa, focando em:
 
@@ -77,7 +77,8 @@ O CardioIA foi projetado para atuar como uma primeira camada de interação info
 
 ---
 
-🚀 Como Executar o Projeto
+## 🚀 Como Executar o Projeto
+
 1. Pré-requisitos
 Certifique-se de ter o Python instalado. Instale as bibliotecas necessárias utilizando o arquivo requirements.txt:
 
@@ -110,23 +111,65 @@ Abra o arquivo ``index.html`` em seu navegador para iniciar a interação com o 
 
 ---
 
+## 📄 Resumo Técnico (Backend & Frontend)
+
+**Backend (app.py)**
+O código utiliza o método message_stateless para garantir que as mensagens sejam processadas sem a necessidade de gerenciar sessões complexas no lado do servidor.
+
+``
+#Trecho do código comentado para estudo
+@app.route('/conversa', methods=['POST'])
+def conversa():
+    dados = request.json
+    pergunta_usuario = dados.get('texto')
+    # Envia para a API da IBM via SDK oficial
+    resposta = assistant.message_stateless(
+        assistant_id=ID_ASSISTENTE,
+        environment_id=ID_ASSISTENTE,
+        input={'message_type': 'text', 'text': pergunta_usuario},
+        user_id='usuario_cardioia_01'
+    ).get_result()
+    return jsonify(resposta)
+``
+
+**Frontend (index.html)**
+A interface utiliza Fetch API assíncrona, permitindo que o usuário receba respostas em tempo real sem recarregar a página.
+
+``
+// Exemplo da chamada de API no Frontend
+const response = await fetch('http://127.0.0.1:5000/conversa', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ texto: texto })
+});
+``
+
+---
+
+## 🎬 Demonstração em Vídeo
+
+Um vídeo demonstrando o fluxo de diálogo, o tratamento de erros e a integração técnica pode ser assistido no link abaixo:
+[Link para o seu vídeo no YouTube/Drive aqui]
+
+---
+
+## ✅ Considerações Finais
+
+O CardioIA cumpre todos os requisitos da Fase 5, demonstrando uma aplicação prática de NLP em saúde digital, com foco em automação, governança de dados e experiência do paciente.
+
+---
+
 ## 🗂 Estrutura dos Arquivos
 
 ```
-cardioia-fase4/
+cardioia-fase5/
 │
-├── assets/                                  # Pasta reservada para guardar imagens estáticas e prints do projeto
-│   ├── metricas_cnn_simples.png             # Print dos gráficos de desempenho do Modelo 1 (CNN Simples)
-│   ├── metricas_vgg16.png                   # Print dos gráficos de desempenho do Modelo 2 (VGG16 - Transfer Learning)
-│   ├── resultado_verdadeiro_positivo.png    # Print da interface acertando um caso de Pneumonia (Verdadeiro Positivo)
-│   ├── resultado_verdadeiro_negativo.png    # Print da interface acertando um caso Normal (Verdadeiro Negativo)
-│   └── resultado_falso_negativo.png         # Print do erro de resolução (Falso Negativo) para análise crítica
-│
-├── notebook/                               # Pasta dedicada aos códigos fontes e scripts
-│   └── Notebook_CardioIA_Fase4Cap1.ipynb    # O arquivo principal com todo o código da Parte 1 e da Parte 2 e com o notebook interativo para apresentação dos resultados (Pré-proc, Modelos e Interface)
-│
-├── docs/ 
-│   └── Relatorio_CardioIA_Fase4Cap1.pdf     # O documento PDF formal com a descrição técnica e justificativas
+├── docs/
+│   ├── CardioIA-Fase5-Bot-action.json       # Exportação das configurações do Watson Assistant.
+│   ├── app.py                               # Servidor backend Flask (Middleware de segurança).
+│   ├── index.html                           # Interface web do usuário (Frontend).
+│   ├── requirements.txt                     # Lista de dependências Python.
+│   └── Relatorio_CardioIA_Fase4Cap1.pdf     # Documentação detalhada do projeto.
 │
 └── README.md                                # O arquivo de texto com a apresentação do projeto, equipe e resultados
 ```
